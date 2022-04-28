@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Uhrzeit</title>
+    <link rel="stylesheet" href="style2.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    
+    
+</head>
+<body>
+
+        <nav class="nav-main">
+          <div class="btn-toggle-nav" onclick="toggleNav()"></div></nav>
+
+        <aside class="nav-sidebar">
+            <ul>
+                <li><span>Projekte</span></li>
+                <li><a href="Index.html">Eier Uhr</a></li>
+                <li><a href="Uhr.html">Uhrzeit</a></li>
+            </ul>
+        </aside>
+
+    <style>
+        body{
+            background-color: #262626;
+        }
+    
+        #clock {
+            font-family: sans-serif ;
+            font-size: 60px;
+            text-align: center;
+            height: 50%;
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            padding: 5%;
+            background-color: grey;
+            border-radius: 10px;
+            animation-name: uhr;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            
+        }
+    
+        .center {
+        display: flex;
+        justify-content: center;
+    }
+    @keyframes uhr  {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+  
+}
+
+    
+    
+        </style>
+    <script>
+        function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+        var t = setTimeout(startTime,500);
+    }
+        function checkTime(i) {
+      if (i < 10) {i = "0" + i}; 
+      return i;
+    }
+    </script>
+    </head>
+    <body onLoad="startTime()">
+    
+    <div>
+        <img src="img/menu.png">
+    </div>
+    
+    
+    <div class="center margin-top "><img src="img/Uhr.png"></div>
+    
+    
+    <div  id="clock">
+    
+    </div>
+    
+    </body>
+  
+    <script src="js/main.js"></script>
+</body>
+</html>
